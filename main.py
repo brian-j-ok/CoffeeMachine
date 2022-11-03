@@ -1,3 +1,9 @@
+# TODO: 2. Check resources sufficient to make drink order.
+def checkResources():
+    for drink in MENU:
+        for ingredient in MENU[drink]["ingredients"]:
+            print(ingredient)
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -29,3 +35,11 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+# TODO: 1. Print report of all the coffee machine resources.
+def printResources():
+    print("Water: " + str(resources["water"]))
+    print("MilK: " + str(resources["milk"]))
+    print("Coffee: " + str(resources["coffee"]))
+
+checkResources()
