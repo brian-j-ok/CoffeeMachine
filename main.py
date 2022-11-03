@@ -1,8 +1,12 @@
 # TODO: 2. Check resources sufficient to make drink order.
 def checkResources():
     for drink in MENU:
+        can_make = True
         for ingredient in MENU[drink]["ingredients"]:
-            print(ingredient)
+            if resources[ingredient] < MENU[drink]["ingredients"][ingredient]:
+                can_make = False
+        print("There are enough resources to make " + drink) if can_make else print("There are not enough resources to make" + drink)
+
 
 MENU = {
     "espresso": {
