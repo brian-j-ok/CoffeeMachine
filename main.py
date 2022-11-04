@@ -11,14 +11,14 @@ def checkResources(drink):
 
 def checkMoney(drink):
     total = 0
-    change = input("Please enter $" + str('${:,.2f}'.format(MENU[drink]["cost"])) + " in change.\n[quarters, dimes, nickles, pennies]\n")
+    change = input("Please enter $" + str('${:,.2f}'.format(MENU[drink]["cost"])) + " in change.\n[quarters, dimes, nickles, pennies]\n").strip()
     for coin in change.split(","):
-        print(coin)
-        # TODO 1. Need to fix indent at beggning of string
-    #     coin_type = change.rstrip('0123456789')
-    #     coin_quantity = change[len(coin_type):]
-    #     total += (coins[coin_type] * int(coin_quantity))
-    # print(total)
+        clean_coin = coin.replace(" ", "")
+        coin_type = clean_coin.strip('1234567890')
+        coin_quantity = clean_coin[len(coin_type):]
+        total += (coins[coin_type] * int(coin_quantity))
+        print(total)
+    print(total)
 
 coins = {
     "q": 25,
